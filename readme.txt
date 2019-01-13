@@ -1,4 +1,4 @@
-Name: MoovelMbileTickets
+Name: Walmart Product Wheel
 Version "1.0.0.0"
 
 Author: Pete Storli
