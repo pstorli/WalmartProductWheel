@@ -1,9 +1,9 @@
 Name: Walmart Product Wheel
-Version "1.0.0.0"
 
 Author: Pete Storli
 Date: 13 Jan 2019
 Email: pstorli@gmail.com
+Version "1.0.0.0"
 
 Issues Resolved
 
