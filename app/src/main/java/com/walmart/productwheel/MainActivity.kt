@@ -3,6 +3,7 @@ package com.walmart.productwheel
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import com.walmart.productwheel.product.list.ProductListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +13,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var actionBar = getSupportActionBar();
+        if (null != actionBar) {
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setIcon(R.drawable.walmart_spark);
+        }
 
         showFragment (ProductListFragment())
     }

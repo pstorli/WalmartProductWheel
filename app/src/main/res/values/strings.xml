@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Walmart Labs Product Wheel</string>
+    <string name="app_name">Walmart Product Wheel</string>
+    <string name="product">Product</string>
 </resources>
