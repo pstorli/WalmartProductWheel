@@ -3,8 +3,8 @@ package com.walmart.productwheel
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import com.walmart.productwheel.product.io.Product
-import com.walmart.productwheel.product.io.ProductInfo
+import com.walmart.productwheel.product.json.Product
+import com.walmart.productwheel.product.json.ProductInfo
 import com.walmart.productwheel.product.list.ProductListFragment
 
 class MainActivity() : AppCompatActivity() {

@@ -3,7 +3,7 @@ package com.walmart.productwheel.product.list
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.walmart.productwheel.MainActivity
-import com.walmart.productwheel.product.io.Product
+import com.walmart.productwheel.product.json.Product
 import com.walmart.productwheel.product.details.ProductDetailFragment
 import kotlinx.android.synthetic.main.product_list_item.view.*
 

@@ -12,9 +12,7 @@ Issues Resolved
   0000 Added click on product in list and details for peoduct will be shown.
   0000 All UI functioning correctly.
   0000 Loading product list from url now.
-
-Outstanding Issues
-  none
+  0000 Added lazy loading to product list
 
 Other
   https://www.walmartbrandcenter.com/downloads.aspx

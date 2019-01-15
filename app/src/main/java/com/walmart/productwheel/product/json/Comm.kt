@@ -1,7 +1,4 @@
-package com.walmart.productwheel.product.io
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+package com.walmart.productwheel.product.json
 
 import android.util.Log
 import com.walmart.productwheel.MainActivity
@@ -15,13 +12,17 @@ class Comm {
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Consts
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    val WALMART_LABS_URL = "https://mobile-tha-server.firebaseapp.com"
+    val TAG                     ="Walmart Product Wheel"
 
-    val WALMART_PRODUCTS_URL = "/walmartproducts"
+    val WALMART_LABS_URL        = "https://mobile-tha-server.firebaseapp.com"
 
-    val TAG ="WPM"
+    val WALMART_PRODUCTS_URL    = "/walmartproducts"
 
-    val PAGE_SIZE = 30 // Max items per request is 30
+    val PAGE_SIZE               = 30 // Max items per request is 30
+
+    var totalProducts           = 0 // How many products are there?
+
+    var isLoading               = false  // Are we loading?
 
     // imageView.loadUrl("http://....")
 
@@ -36,6 +37,8 @@ class Comm {
      */
     fun loadProducts (productListAdapter : ProductListAdapter, pageNumber:Int)
     {
+        isLoading = true
+
         Thread {
             try {
                 val url = WALMART_LABS_URL + WALMART_PRODUCTS_URL + "/" + pageNumber.toString() + "/" + PAGE_SIZE.toString();
@@ -49,7 +52,10 @@ class Comm {
                 MainActivity.instance.runOnUiThread({
                     MainActivity.instance.addProducts (productInfo)
                     productListAdapter.notifyDataSetChanged()
+                    isLoading = false
                 })
+
+                totalProducts = Integer.parseInt(productInfo.totalProducts)
             }
             catch (e: Exception) {
                 e.printStackTrace()

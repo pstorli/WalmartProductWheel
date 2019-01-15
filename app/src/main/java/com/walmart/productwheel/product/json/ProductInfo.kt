@@ -1,4 +1,4 @@
-package com.walmart.productwheel.product.io
+package com.walmart.productwheel.product.json
 
 class ProductInfo  () {
     var statusCode: String? = null
