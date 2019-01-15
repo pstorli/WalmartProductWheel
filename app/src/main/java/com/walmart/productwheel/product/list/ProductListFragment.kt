@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
 import com.walmart.productwheel.product.json.Comm
-import android.util.Log
 
 
 class ProductListFragment : Fragment() {
@@ -18,7 +17,6 @@ class ProductListFragment : Fragment() {
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Vars
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    var             comm                                    : Comm = Comm()
     lateinit var    recyclerView                            : RecyclerView
     lateinit var    layoutManager                           : GridLayoutManager
     lateinit var    productListAdapter                      : ProductListAdapter
@@ -39,15 +37,15 @@ class ProductListFragment : Fragment() {
             val visibleItemCount            = layoutManager.childCount
             val totalItemCount              = layoutManager.itemCount
             val firstVisibleItemPosition    = layoutManager.findFirstVisibleItemPosition()
-            var isLastPage                  = visibleItemCount + firstVisibleItemPosition >= comm.totalProducts
+            var isLastPage                  = visibleItemCount + firstVisibleItemPosition >= MainActivity.instance.comm.totalProducts
 
-            if (!comm.isLoading && !isLastPage) {
-                if (visibleItemCount + firstVisibleItemPosition >= totalItemCount && firstVisibleItemPosition >= 0 && totalItemCount >= comm.PAGE_SIZE) {
+            if (!MainActivity.instance.comm.isLoading && !isLastPage) {
+                if (visibleItemCount + firstVisibleItemPosition >= totalItemCount && firstVisibleItemPosition >= 0 && totalItemCount >= MainActivity.instance.comm.PAGE_SIZE) {
                     // Go to next page.
                     MainActivity.instance.page++
 
                     // Load products for next page.
-                    comm.loadProducts (productListAdapter, MainActivity.instance.page)
+                    MainActivity.instance.comm.loadProducts (productListAdapter, MainActivity.instance.page)
                 }
             }
         }
@@ -75,9 +73,16 @@ class ProductListFragment : Fragment() {
         // Fetch the recycler
         recyclerView = view.findViewById<RecyclerView>(R.id.productListRecycler)
 
+        // create layout
         layoutManager = GridLayoutManager(MainActivity.instance, 2)
 
         recyclerView.layoutManager = layoutManager
+
+        // Get the padding between items.
+        var padding = resources.getDimension(R.dimen.product_padding).toInt();
+
+        // Add a decorator to enforce the padding.
+        recyclerView.addItemDecoration(ProductDecoration(padding))
 
         // Access the RecyclerView Adapter and load the data into it
         productListAdapter = ProductListAdapter (this)
@@ -87,8 +92,6 @@ class ProductListFragment : Fragment() {
         recyclerView.addOnScrollListener(recyclerViewOnScrollListener);
 
         // Load first page.
-        comm.loadProducts (productListAdapter, MainActivity.instance.page)
-
-
+        MainActivity.instance.comm.loadProducts (productListAdapter, MainActivity.instance.page)
     }
 }

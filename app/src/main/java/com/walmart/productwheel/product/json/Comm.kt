@@ -1,10 +1,12 @@
 package com.walmart.productwheel.product.json
 
 import android.util.Log
+import android.widget.ImageView
 import com.walmart.productwheel.MainActivity
 import okhttp3.*
 import java.net.URL
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.squareup.picasso.Picasso
 import com.walmart.productwheel.product.list.ProductListAdapter
 
 class Comm {
@@ -23,8 +25,6 @@ class Comm {
     var totalProducts           = 0 // How many products are there?
 
     var isLoading               = false  // Are we loading?
-
-    // imageView.loadUrl("http://....")
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Vars
@@ -62,5 +62,17 @@ class Comm {
             }
         }.start()
 
+    }
+
+    /**
+     * Load the image for this product.
+     */
+    fun loadImage (product:Product, productImage: ImageView) {
+        val url = WALMART_LABS_URL + product.productImage
+
+        // Load remote image.
+        Picasso.get()
+            .load(url)
+            .into(productImage)
     }
 }

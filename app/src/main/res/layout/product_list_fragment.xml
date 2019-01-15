@@ -2,14 +2,15 @@
 <android.support.constraint.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@color/black"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+        android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/productListRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

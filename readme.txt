@@ -13,6 +13,7 @@ Issues Resolved
   0000 All UI functioning correctly.
   0000 Loading product list from url now.
   0000 Added lazy loading to product list
+  0000 Adding padding to product list items
 
 Other
   https://www.walmartbrandcenter.com/downloads.aspx

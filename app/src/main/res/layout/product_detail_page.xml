@@ -2,9 +2,9 @@
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+        android:layout_height="match_parent">
 
     <TextView
             android:id="@+id/productName"
@@ -13,6 +13,7 @@
             android:textSize="@dimen/font_size_large"
             android:textStyle="bold"
             android:textColor="@color/walmart"
+            android:backgroundTint="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

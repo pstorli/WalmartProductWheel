@@ -4,5 +4,7 @@
 	<dimen name="font_size_medium">22sp</dimen>
 	<dimen name="font_size_small">16sp</dimen>
 
-	<dimen name="page_padding">6sp</dimen>
+	<dimen name="page_padding">6dp</dimen>
+
+	<dimen name="product_padding">3dp</dimen>
 </resources>

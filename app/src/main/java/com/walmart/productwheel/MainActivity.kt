@@ -3,6 +3,7 @@ package com.walmart.productwheel
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import com.walmart.productwheel.product.json.Comm
 import com.walmart.productwheel.product.json.Product
 import com.walmart.productwheel.product.json.ProductInfo
 import com.walmart.productwheel.product.list.ProductListFragment
@@ -10,16 +11,13 @@ import com.walmart.productwheel.product.list.ProductListFragment
 class MainActivity() : AppCompatActivity() {
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Consts
-    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Vars
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     var products     : ArrayList<Product> = ArrayList()
-    var position     : Int =  0
-    var page         : Int =  1
+    var position     : Int  =  0
+    var page         : Int  =  1
+    var comm         : Comm = Comm()
 
     /**
      * constructor

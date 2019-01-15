@@ -20,6 +20,7 @@ class ProductListViewHolder(productListAdapter:ProductListAdapter, itemView: Vie
      */
     fun bindView (product: Product) {
         itemView.productName.text = product.productName
+        MainActivity.instance.comm.loadImage (product, itemView.productImage)
     }
 
     /**
