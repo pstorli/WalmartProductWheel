@@ -5,19 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
-import com.walmart.productwheel.product.Product
+import kotlinx.android.synthetic.main.product_list_item.view.*
 
-class ProductListAdapter(productListFragment:ProductListFragment, products: ArrayList<Product>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+@Suppress("DEPRECATION")
+class ProductListAdapter(productListFragment:ProductListFragment) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     /**
      * Vars
      */
-    lateinit var productListFragment: ProductListFragment
-    var products: List<Product>
+    var productListFragment: ProductListFragment
 
     init {
         this.productListFragment = productListFragment
-        this.products = products
     }
 
     /**
@@ -25,27 +24,27 @@ class ProductListAdapter(productListFragment:ProductListFragment, products: Arra
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_list_item, parent, false)
-        return ProductListViewHolder(productListFragment, view)
+        return ProductListViewHolder(this, view)
     }
 
     /**
      * getItemCount
      */
-    override fun getItemCount(): Int = products.size
+    override fun getItemCount() : Int {
+        return MainActivity.instance.getProductCount ()
+    }
 
     /**
      * onBindViewHolder
      */
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
-        val movieViewHolder = viewHolder as ProductListViewHolder
-        movieViewHolder.bindView(products[position])
-    }
+        val productListViewHolder = viewHolder as ProductListViewHolder
+        productListViewHolder.bindView (MainActivity.instance.getProduct (position))
 
-    /**
-     * setProductList
-     */
-    fun setProductList(products: List<Product>) {
-        this.products = products
-        notifyDataSetChanged()
+        // Change text color of the selected one to black, others blue.
+        val textColor: Int = if (position == MainActivity.instance.position) R.color.orange else R.color.walmart
+
+        // Set the text color to orange.
+        productListViewHolder.itemView.productName.setTextColor (MainActivity.instance.getResources().getColor(textColor));
     }
 }

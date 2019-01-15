@@ -1,24 +1,16 @@
 package com.walmart.productwheel
 
-import android.content.Context
-import android.os.Bundle
 import android.support.v4.app.Fragment
+import com.walmart.productwheel.product.Product
 
 open class RootFragment : Fragment() {
 
-    var activityMain: MainActivity? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        try {
-            activityMain = context as MainActivity
-        } catch (e: ClassCastException) {
-            throw ClassCastException(context?.toString() + " must implement MainActivity")
-        }
+    /**
+     * getProduct
+     */
+    fun getProduct (pos:Int) : Product
+    {
+        return MainActivity.instance.getProduct (pos)
     }
 
     override fun onPause() {
