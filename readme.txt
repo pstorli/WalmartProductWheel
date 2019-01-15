@@ -14,6 +14,7 @@ Issues Resolved
   0000 Loading product list from url now.
   0000 Added lazy loading to product list
   0000 Adding padding to product list items
+  0000 Added product image to product details
 
 Other
   https://www.walmartbrandcenter.com/downloads.aspx

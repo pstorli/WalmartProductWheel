@@ -5,18 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
 import com.walmart.productwheel.RootFragment
 import com.walmart.productwheel.product.list.ProductListFragment
+import kotlinx.android.synthetic.main.product_list_item.view.*
 
 internal class ProductDetailPage (): RootFragment() {
 
     // Vars.
     lateinit var showProdListBtn    : Button
     lateinit var productName        : TextView
-    var page = MainActivity.instance.position
+    lateinit var productImage       : ImageView
+             var page               = MainActivity.instance.position
 
     /**
      * onCreateView
@@ -26,6 +29,7 @@ internal class ProductDetailPage (): RootFragment() {
         var view = inflater.inflate(R.layout.product_detail_page, container, false)
 
         productName     = view.findViewById(R.id.productName)
+        productImage    = view.findViewById(R.id.productImage)
         showProdListBtn = view.findViewById<Button>(R.id.showProdListBtn)
         showProdListBtn.setOnClickListener(
             {
@@ -42,6 +46,8 @@ internal class ProductDetailPage (): RootFragment() {
      */
     fun bind ()
     {
-        productName.text = MainActivity.instance.getProduct (page).productName
+        var product = MainActivity.instance.getProduct (page)
+        productName.text = product.productName
+        MainActivity.instance.comm.loadImage (product, productImage)
     }
 }
