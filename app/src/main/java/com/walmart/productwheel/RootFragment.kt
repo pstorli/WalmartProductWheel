@@ -1,7 +1,7 @@
 package com.walmart.productwheel
 
 import android.support.v4.app.Fragment
-import com.walmart.productwheel.product.Product
+import com.walmart.productwheel.product.io.Product
 
 open class RootFragment : Fragment() {
 

@@ -9,8 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
+import com.walmart.productwheel.product.io.Comm
 
 class ProductListFragment : Fragment() {
+
+    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Vars
+    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var comm         : Comm = Comm()
 
     /**
      * onCreateView
@@ -37,7 +43,13 @@ class ProductListFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(MainActivity.instance, 2) as RecyclerView.LayoutManager?
 
         // Access the RecyclerView Adapter and load the data into it
-        recyclerView.adapter = ProductListAdapter (this)
+        val productListAdapter = ProductListAdapter (this)
+
+        recyclerView.adapter = productListAdapter
+
+        // Load page.
+        comm.loadProducts (productListAdapter, MainActivity.instance.page)
+
 
     }
 }

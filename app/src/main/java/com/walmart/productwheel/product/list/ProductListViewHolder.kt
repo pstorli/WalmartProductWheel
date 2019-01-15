@@ -3,7 +3,7 @@ package com.walmart.productwheel.product.list
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.walmart.productwheel.MainActivity
-import com.walmart.productwheel.product.Product
+import com.walmart.productwheel.product.io.Product
 import com.walmart.productwheel.product.details.ProductDetailFragment
 import kotlinx.android.synthetic.main.product_list_item.view.*
 
@@ -19,7 +19,7 @@ class ProductListViewHolder(productListAdapter:ProductListAdapter, itemView: Vie
      * bindView
      */
     fun bindView (product: Product) {
-        itemView.productName.text = product.name
+        itemView.productName.text = product.productName
     }
 
     /**

@@ -3,10 +3,15 @@ package com.walmart.productwheel
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import com.walmart.productwheel.product.Product
+import com.walmart.productwheel.product.io.Product
+import com.walmart.productwheel.product.io.ProductInfo
 import com.walmart.productwheel.product.list.ProductListFragment
 
 class MainActivity() : AppCompatActivity() {
+
+    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Consts
+    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Vars
@@ -14,6 +19,7 @@ class MainActivity() : AppCompatActivity() {
 
     var products     : ArrayList<Product> = ArrayList()
     var position     : Int =  0
+    var page         : Int =  1
 
     /**
      * constructor
@@ -47,7 +53,7 @@ class MainActivity() : AppCompatActivity() {
      */
     fun getProduct () : Product = getProduct (position)
     fun getProduct (pos: Int) : Product {
-        var product = Product ("Nothing")
+        var product = Product()
         if (products.size>0 && pos<products.size) {
             product = products[pos]
         }
@@ -67,8 +73,6 @@ class MainActivity() : AppCompatActivity() {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.drawable.walmart_spark);
         }
-
-        addProducts()
 
         showFragment (ProductListFragment())
     }
@@ -93,20 +97,18 @@ class MainActivity() : AppCompatActivity() {
     }
 
     /**
-     * addProducts
+     * addProduct
      */
-    fun addProducts() {
-        products.add(Product("Prod1"))
-        products.add(Product("Prod2"))
-        products.add(Product("Prod3"))
-        products.add(Product("Prod4"))
-        products.add(Product("Prod5"))
-        products.add(Product("Prod6"))
-        products.add(Product("Prod7"))
-        products.add(Product("Prod8"))
-        products.add(Product("Prod9"))
-        products.add(Product("Prod10"))
+    fun addProduct(product: Product) {
+        products.add(product)
     }
 
-
+    /**
+     * addProducts
+     */
+    fun addProducts(productInfo : ProductInfo) {
+        for (product in productInfo.products!!) {
+            addProduct(product)
+        }
+    }
 }

@@ -1,6 +1,6 @@
-package com.walmart.productwheel.product
+package com.walmart.productwheel.product.io
 
-data class Product(val name: String)
+class Product
 {
     var productId           : String = ""// Unique Id of the product
     var productName         : String = ""// Product Name
@@ -11,8 +11,4 @@ data class Product(val name: String)
     var reviewRating        : Int  = 0 // Average review rating for the product
     var reviewCount         : Int = 0 //Number of reviews
     var inStock             : Boolean = false // Returns true if item in stock
-
-    init {
-        productName = name;
-    }
 }

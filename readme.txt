@@ -11,6 +11,7 @@ Issues Resolved
   0000 Added product list and product detail fragments.
   0000 Added click on product in list and details for peoduct will be shown.
   0000 All UI functioning correctly.
+  0000 Loading product list from url now.
 
 Outstanding Issues
   none
