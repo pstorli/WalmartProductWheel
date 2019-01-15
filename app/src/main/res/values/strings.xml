@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Walmart Product Wheel</string>
     <string name="product">Product</string>
+
+    <string name="in_stock">Product is in stock.</string>
+    <string name="out_of_stock">Product is out of stock!</string>
 </resources>

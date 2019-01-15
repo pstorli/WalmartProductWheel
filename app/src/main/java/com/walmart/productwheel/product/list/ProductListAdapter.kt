@@ -39,10 +39,16 @@ class ProductListAdapter(productListFragment:ProductListFragment) : RecyclerView
      */
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val productListViewHolder = viewHolder as ProductListViewHolder
-        productListViewHolder.bindView (MainActivity.instance.getProduct (position))
+        var product = MainActivity.instance.getProduct (position)
+        productListViewHolder.bindView (product)
 
         // Change text color of the selected one to black, others blue.
-        val textColor: Int = if (position == MainActivity.instance.position) R.color.orange else R.color.walmart
+        var textColor: Int = if (position == MainActivity.instance.position) R.color.black else R.color.walmart
+
+        // If item is out of stock, show red text.
+        if (!product.inStock) {
+            textColor = R.color.red
+        }
 
         // Set the text color to orange.
         productListViewHolder.itemView.productName.setTextColor (MainActivity.instance.getResources().getColor(textColor));

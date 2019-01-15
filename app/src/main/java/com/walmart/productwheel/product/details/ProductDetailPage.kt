@@ -16,9 +16,10 @@ import kotlinx.android.synthetic.main.product_list_item.view.*
 internal class ProductDetailPage (): RootFragment() {
 
     // Vars.
-    lateinit var showProdListBtn    : Button
     lateinit var productName        : TextView
     lateinit var productImage       : ImageView
+    lateinit var inStockBtn         : Button
+    lateinit var showProdListBtn    : Button
              var page               = MainActivity.instance.position
 
     /**
@@ -30,6 +31,7 @@ internal class ProductDetailPage (): RootFragment() {
 
         productName     = view.findViewById(R.id.productName)
         productImage    = view.findViewById(R.id.productImage)
+        inStockBtn      = view.findViewById<Button>(R.id.prodInStock)
         showProdListBtn = view.findViewById<Button>(R.id.showProdListBtn)
         showProdListBtn.setOnClickListener(
             {
@@ -49,5 +51,16 @@ internal class ProductDetailPage (): RootFragment() {
         var product = MainActivity.instance.getProduct (page)
         productName.text = product.productName
         MainActivity.instance.comm.loadImage (product, productImage)
+
+        // Set text to in or out of stock and x or check icon.
+        if (product.inStock) {
+            // In stock
+            inStockBtn.text = MainActivity.instance.getString(R.string.in_stock)
+            inStockBtn.setCompoundDrawablesWithIntrinsicBounds( R.drawable.check, 0, 0, 0);
+        } else {
+            // Out of stock
+            inStockBtn.text = MainActivity.instance.getString(R.string.out_of_stock)
+            inStockBtn.setCompoundDrawablesWithIntrinsicBounds( R.drawable.red_x, 0, 0, 0);
+        }
     }
 }

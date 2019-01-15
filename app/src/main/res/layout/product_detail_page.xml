@@ -1,47 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
-            android:id="@+id/productName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/font_size_large"
-            android:textStyle="bold"
-            android:textColor="@color/walmart"
-            android:backgroundTint="@color/white"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/productName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size_medium"
+        android:textStyle="bold"
+        android:textColor="@color/walmart"
+        android:backgroundTint="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-            android:id="@+id/productImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitXY"
-            android:padding="2dp"
-            android:background="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/productName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/productImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:padding="2dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/productName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-            android:id="@+id/showProdListBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show Product List"
-            android:textAllCaps="false"
-            android:textSize="@dimen/font_size_medium"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/walmart"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+        android:id="@+id/prodInStock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/in_stock"
+        android:textAllCaps="false"
+        android:textSize="@dimen/font_size_medium"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:paddingTop="2dp"
+        android:paddingLeft="6dp"
+        android:paddingBottom="2dp"
+        android:paddingRight="8dp"
+        android:backgroundTint="@color/walmart"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/check"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productImage"/>
+
+    <Button
+        android:id="@+id/showProdListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Product List"
+        android:textAllCaps="false"
+        android:textSize="@dimen/font_size_medium"
+        android:textStyle="bold"
+        android:paddingTop="4dp"
+        android:paddingLeft="16dp"
+        android:paddingBottom="4dp"
+        android:paddingRight="16dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/walmart"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
