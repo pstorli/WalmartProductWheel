@@ -6,11 +6,6 @@ import android.view.ViewGroup
 import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
 import kotlinx.android.synthetic.main.product_list_item.view.*
-import android.R.attr.duration
-import android.support.v7.widget.RecyclerView.SmoothScroller
-import android.opengl.ETC1.getHeight
-
-
 
 @Suppress("DEPRECATION")
 class ProductListAdapter(productListFragment:ProductListFragment) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

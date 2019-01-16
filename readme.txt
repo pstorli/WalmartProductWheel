@@ -1,7 +1,7 @@
 Name: Walmart Product Wheel
 
 Author: Pete Storli
-Date: 13 Jan 2019
+Date: 13 Jan 2019 - 15 Jan 2019
 Email: pstorli@gmail.com
 Version "1.0.0.0"
 
@@ -31,3 +31,6 @@ Known Issues:
 Notes:
 
   https://www.walmartbrandcenter.com/downloads.aspx
+
+  git remote add origin https://github.com/pstorli/WalmartProductWheel.git
+  git push -u origin master
