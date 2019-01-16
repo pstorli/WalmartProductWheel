@@ -34,3 +34,15 @@ Notes:
 
   git remote add origin https://github.com/pstorli/WalmartProductWheel.git
   git push -u origin master
+
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/pstorli/WalmartProductWheel.git /home/pstorli/git/WalmartProductWheel
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
