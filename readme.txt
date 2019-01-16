@@ -30,19 +30,10 @@ Known Issues:
 
 Notes:
 
-  https://www.walmartbrandcenter.com/downloads.aspx
+This app was written in Kotlin for Walmart to display a list of their products and product details.
 
-  git remote add origin https://github.com/pstorli/WalmartProductWheel.git
-  git push -u origin master
+The MainActivity use one fragment to diplay the list of products.
+The list lazy loads products as you scroll. The list uses Android's RecyclerView
 
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-[remote "origin"]
-	url = https://github.com/pstorli/WalmartProductWheel.git /home/pstorli/git/WalmartProductWheel
-	fetch = +refs/heads/*:refs/remotes/origin/*
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
+The other fragment displays product details and if swiped lets you move to prev/next
+product detail screens.The product details screen uses Android's ViewPager
