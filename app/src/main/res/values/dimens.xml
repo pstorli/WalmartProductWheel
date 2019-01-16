@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<dimen name="font_size_large">28sp</dimen>
-	<dimen name="font_size_medium">22sp</dimen>
-	<dimen name="font_size_small">16sp</dimen>
+	<dimen name="font_size_medium">24sp</dimen>
+	<dimen name="font_size_small">22sp</dimen>
 
 	<dimen name="page_padding">6dp</dimen>
 
 	<dimen name="product_padding">3dp</dimen>
+
+	<dimen name="product_detail_padding">2dp</dimen>
 </resources>

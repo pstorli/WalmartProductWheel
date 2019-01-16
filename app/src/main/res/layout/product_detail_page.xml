@@ -1,71 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/white"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/productName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/font_size_medium"
-        android:textStyle="bold"
-        android:textColor="@color/walmart"
-        android:backgroundTint="@color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/productImage"
+    <!-- For fields that show json data, set the widgets initial text below to be widgets name, so if text not see we will see the widget name instead. -->
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:scaleType="fitXY"
-        android:padding="2dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/productName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/prodInStock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/in_stock"
-        android:textAllCaps="false"
-        android:textSize="@dimen/font_size_medium"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:paddingTop="2dp"
-        android:paddingLeft="6dp"
-        android:paddingBottom="2dp"
-        android:paddingRight="8dp"
-        android:backgroundTint="@color/walmart"
-        android:drawablePadding="8dp"
-        android:drawableLeft="@drawable/check"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/productImage"/>
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="@dimen/font_size_medium"
+            android:textStyle="bold"
+            android:textColor="@color/walmart"
+            android:backgroundTint="@color/white" />
 
-    <Button
-        android:id="@+id/showProdListBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Show Product List"
-        android:textAllCaps="false"
-        android:textSize="@dimen/font_size_medium"
-        android:textStyle="bold"
-        android:paddingTop="4dp"
-        android:paddingLeft="16dp"
-        android:paddingBottom="4dp"
-        android:paddingRight="16dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/walmart"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/productName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:layout_margin="0dp"
+            android:padding="2dp"
+            android:background="@color/white" />
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/prodInStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/productImage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/in_stock"
+            android:textAllCaps="false"
+            android:textSize="@dimen/font_size_medium"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:paddingTop="2dp"
+            android:paddingLeft="6dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="8dp"
+            android:layout_marginTop="0dp"
+            android:backgroundTint="@color/walmart"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/check"
+            android:layout_centerInParent="true"/>
+
+        <GridLayout
+            android:id="@+id/detailGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/prodInStock"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="@dimen/product_detail_padding"
+            android:layout_marginBottom="24dp"
+            android:padding="@dimen/page_padding"
+            android:backgroundTint="@color/white"
+            android:columnCount="2">
+
+            <!-- id -->
+            <TextView
+                android:text="@string/id"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/productId"
+                android:text="productId"
+                android:inputType="none"
+                android:editable="false"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- price -->
+            <TextView
+                android:text="@string/price"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/productPrice"
+                android:inputType="none"
+                android:editable="false"
+                android:text="productPrice"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- count -->
+            <TextView
+                android:text="@string/count"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/productCount"
+                android:inputType="none"
+                android:editable="false"
+                android:text="productCount"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- rating -->
+            <TextView
+                android:text="@string/rating"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/productRating"
+                android:inputType="none"
+                android:editable="false"
+                android:text="productRating"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </GridLayout>
+
+        <!-- Short Description Label -->
+        <TextView
+                android:id="@+id/productDescShortLbl"
+                android:text="@string/desc_short"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/detailGrid"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <!-- Short Description -->
+        <EditText
+                android:id="@+id/productDescShort"
+                android:inputType="none"
+                android:editable="false"
+                android:text="productDescShort"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/productDescShortLbl"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <!-- Long Description Label -->
+        <TextView
+                android:id="@+id/productDescLongLbl"
+                android:text="@string/desc_long"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_small"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/productDescShort"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <!-- Long Description -->
+        <TextView
+                android:id="@+id/productDescLong"
+                android:text="productDescLong"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_small"
+                android:singleLine="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/productDescLongLbl"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <!-- showProdListBtn -->
+        <Button
+                android:id="@+id/showProdListBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Product List"
+                android:textAllCaps="false"
+                android:textSize="@dimen/font_size_medium"
+                android:textStyle="bold"
+                android:paddingTop="4dp"
+                android:paddingLeft="16dp"
+                android:paddingBottom="4dp"
+                android:paddingRight="16dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/walmart"
+                app:layout_constraintTop_toBottomOf="@id/productDescLong"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

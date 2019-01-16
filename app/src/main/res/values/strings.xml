@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Walmart Product Wheel</string>
-    <string name="product">Product</string>
-
+    <string name="count">Count:</string>
+    <string name="desc_long">Description Long</string>
+    <string name="desc_short">Description Short</string>
+    <string name="details">Details:</string>
+    <string name="id">Id:</string>
     <string name="in_stock">Product is in stock.</string>
+    <string name="in_stock_toast">Buy Now!</string>
     <string name="out_of_stock">Product is out of stock!</string>
+    <string name="out_of_stock_toast">Reorder Now!</string>
+    <string name="product">Product</string>
+    <string name="price">Price:</string>
+    <string name="rating">Rating:</string>
 </resources>

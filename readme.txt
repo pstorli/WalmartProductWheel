@@ -5,7 +5,7 @@ Date: 13 Jan 2019
 Email: pstorli@gmail.com
 Version "1.0.0.0"
 
-Issues Resolved
+Issues Resolved:
 
   0000 Inital Creation
   0000 Added product list and product detail fragments.
@@ -15,6 +15,11 @@ Issues Resolved
   0000 Added lazy loading to product list
   0000 Adding padding to product list items
   0000 Added product image to product details
+  0000 Hid short and long descriptions if text is blank.
+  0000 Added routine to convert short and long text from html to span
+  0000 Made product list text color red if out of stock, black if selected otherwise walmart blue
+  0000 Added snackbar when product in stock button is pressed. Use red text if out of stock, in stock uses green.
 
-Other
+Notes:
+
   https://www.walmartbrandcenter.com/downloads.aspx
