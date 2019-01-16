@@ -37,3 +37,7 @@ The list lazy loads products as you scroll. The list uses Android's RecyclerView
 
 The other fragment displays product details and if swiped lets you move to prev/next
 product detail screens.The product details screen uses Android's ViewPager
+
+Head over to my apps page to see screen shots and more details.
+  https://sites.google.com/site/storlidesignsllc/apps
+
