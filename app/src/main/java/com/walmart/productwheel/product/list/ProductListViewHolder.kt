@@ -24,7 +24,7 @@ class ProductListViewHolder(productListAdapter:ProductListAdapter, itemView: Vie
     }
 
     /**
-     * onClick
+     * onC+lick
      */
     override fun onClick (view: View?) {
         // Move product position to where we just clicked.

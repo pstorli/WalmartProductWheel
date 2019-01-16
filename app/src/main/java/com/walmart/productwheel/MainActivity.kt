@@ -1,10 +1,10 @@
 package com.walmart.productwheel
 
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
@@ -16,13 +16,22 @@ import com.walmart.productwheel.product.list.ProductListFragment
 class MainActivity() : AppCompatActivity() {
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Consts
+    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    val TAG                 = "Walmart Product Wheel"
+    val totalProductsLbl    = "totalProducts"
+    val productsLbl         = "products"
+    val positionLbl         = "position"
+    val pageLbl             = "page"
+
+    // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Vars
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    var products     : ArrayList<Product> = ArrayList()
-    var position     : Int  =  0
-    var page         : Int  =  1
-    var comm         : Comm = Comm()
+    var products            : ArrayList<Product> = ArrayList()
+    var position            : Int  =  0
+    var page                : Int  =  1
+    var comm                : Comm = Comm()
 
     /**
      * constructor
@@ -143,5 +152,45 @@ class MainActivity() : AppCompatActivity() {
 
         // Now, finally, show the snack bar.
         snackBar.show()
+    }
+
+    /**
+     * onSaveInstanceState
+     */
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        Log.i(TAG, "onSaveInstanceState")
+
+        // TODO - Needs more testing / debugging.
+        //outState?.putCharSequence(positionLbl,          Integer.toString (position))
+        //outState?.putCharSequence(pageLbl,              Integer.toString (page))
+        //outState?.putCharSequence(totalProductsLbl,     Integer.toString (comm.totalProducts))
+
+        //outState?.putCharSequence(productsLbl,          comm.productsToString(products))
+    }
+
+    /**
+     * onRestoreInstanceState
+     */
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.i(TAG, "onRestoreInstanceState")
+
+        // TODO - Needs more testing / debugging.
+
+        // position
+        //position            = Integer.parseInt(savedInstanceState?.getCharSequence(positionLbl).toString())
+
+        // page
+        //page                = Integer.parseInt(savedInstanceState?.getCharSequence(pageLbl).toString())
+
+        // totalProducts
+        //comm.totalProducts  = Integer.parseInt(savedInstanceState?.getCharSequence(totalProductsLbl).toString())
+
+        // products
+        //val productsJson    = savedInstanceState?.getCharSequence(productsLbl)
+
+        //products            = comm.getProducts(productsJson.toString())
+
     }
 }

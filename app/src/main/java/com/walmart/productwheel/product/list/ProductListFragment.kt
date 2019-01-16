@@ -9,8 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
-import com.walmart.productwheel.product.json.Comm
-
 
 class ProductListFragment : Fragment() {
 

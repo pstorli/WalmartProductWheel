@@ -20,6 +20,14 @@ Issues Resolved:
   0000 Made product list text color red if out of stock, black if selected otherwise walmart blue
   0000 Added snackbar when product in stock button is pressed. Use red text if out of stock, in stock uses green.
 
+Known Issues:
+  0000 When you go from the ProductDetail page to the ProductList page,
+       app needs to scroll to current item, more work is needed to complete this feature.
+
+  0000 Added code to handle onSaveInstanceState and onRestoreInstanceState
+       When an onOrientation change happens, onSaveInstanceState and onRestoreInstanceState are called,
+       but more work is needed to complete this feature and get the app ddata persisted. (Started)
+
 Notes:
 
   https://www.walmartbrandcenter.com/downloads.aspx
