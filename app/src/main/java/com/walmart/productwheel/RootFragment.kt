@@ -5,14 +5,6 @@ import com.walmart.productwheel.product.json.Product
 
 open class RootFragment : Fragment() {
 
-    /**
-     * getProduct
-     */
-    fun getProduct (pos:Int) : Product
-    {
-        return MainActivity.instance.getProduct (pos)
-    }
-
     override fun onPause() {
         super.onPause()
     }

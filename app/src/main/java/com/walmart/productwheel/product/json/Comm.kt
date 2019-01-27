@@ -15,8 +15,6 @@ import java.util.Arrays.asList
 import java.util.Base64.getEncoder
 import java.util.Base64.getDecoder
 
-
-
 class Comm {
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,7 +49,7 @@ class Comm {
 
                 val products = URL(url).readText()
 
-                val productInfo = getProductInfo(products)
+                val productInfo = getProductInfo (products)
 
                 Log.i(MainActivity.instance.TAG, products)
 
@@ -72,7 +70,7 @@ class Comm {
     /**
      * Load the image for this product.
      */
-    fun loadImage(product: Product, productImage: ImageView) {
+    fun loadImage (product: Product, productImage: ImageView) {
         val url = WALMART_LABS_URL + product.productImage
 
         // Load remote image.

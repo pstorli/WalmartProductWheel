@@ -87,6 +87,7 @@ class ProductListFragment : Fragment() {
 
         recyclerView.adapter = productListAdapter
 
+        // Add the recyclerViewOnScrollListener
         recyclerView.addOnScrollListener(recyclerViewOnScrollListener);
 
         // Load first page.

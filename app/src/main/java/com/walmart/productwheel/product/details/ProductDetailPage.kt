@@ -1,10 +1,7 @@
 package com.walmart.productwheel.product.details
 
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.support.constraint.R.id.gone
-import android.support.design.widget.Snackbar
 import android.text.Html
 import android.text.Spanned
 import android.view.LayoutInflater
@@ -18,7 +15,6 @@ import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
 import com.walmart.productwheel.RootFragment
 import com.walmart.productwheel.product.list.ProductListFragment
-import kotlinx.android.synthetic.main.product_list_item.view.*
 
 internal class ProductDetailPage (): RootFragment() {
 

@@ -29,8 +29,22 @@ Known Issues:
        but more work is needed to complete this feature and get the app ddata persisted. (Started)
 
 Notes:
+  See the file Overlay.pdf or goto site
+  https://sites.google.com/site/storlidesignsllc/home/walmartproductwheelclassoverview
 
+  Click here to goto the main storli designs site
+  https://sites.google.com/site/storlidesignsllc/
+
+  Click here to download the WalmartProductWheel App
+  https://drive.google.com/file/d/10Q0RtaAXdXGye-4ieInskH34xZoLtW_p/view
+
+  Click here to goto github to download the WalmartProductWheel Android Studio Project
+  https://github.com/pstorli/WalmartProductWheel
+
+  Click here to goto the walmart brands center
   https://www.walmartbrandcenter.com/downloads.aspx
+
+  git clone git://github.com/pstorli/WalmartProductWheel.git
 
   git remote add origin https://github.com/pstorli/WalmartProductWheel.git
   git push -u origin master
