@@ -1,6 +1,6 @@
 package com.walmart.productwheel.product.list
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.walmart.productwheel.MainActivity
@@ -8,7 +8,7 @@ import com.walmart.productwheel.R
 import kotlinx.android.synthetic.main.product_list_item.view.*
 
 @Suppress("DEPRECATION")
-class ProductListAdapter(productListFragment:ProductListFragment) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ProductListAdapter(productListFragment:ProductListFragment) : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
 
     /**
      * Vars
@@ -22,7 +22,7 @@ class ProductListAdapter(productListFragment:ProductListFragment) : RecyclerView
     /**
      * onCreateViewHolder
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_list_item, parent, false)
         return ProductListViewHolder(this, view)
     }
@@ -37,7 +37,7 @@ class ProductListAdapter(productListFragment:ProductListFragment) : RecyclerView
     /**
      * onBindViewHolder
      */
-    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         val productListViewHolder = viewHolder as ProductListViewHolder
         var product = MainActivity.instance.getProduct (position)
         productListViewHolder.bindView (product)

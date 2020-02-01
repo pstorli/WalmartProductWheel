@@ -79,8 +79,8 @@ internal class ProductDetailPage (): RootFragment() {
         MainActivity.instance.comm.loadImage (product, productImage)
 
         // Set text to in or out of stock and x or check icon.
-        var toastText = ""
-        var textColor = 0
+        var toastText: String
+        var textColor: Int
         if (product.inStock) {
             // In stock
             textColor = R.color.green_lt
@@ -141,10 +141,12 @@ internal class ProductDetailPage (): RootFragment() {
      */
     fun htmlToSpan (text:String) : Spanned
     {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT)
-        } else {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            // This has been depreciated.
             return Html.fromHtml(text)
+
+        } else {
+            return Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT)
         }
     }
 }

@@ -1,9 +1,10 @@
 package com.walmart.productwheel
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
+import com.google.android.material.snackbar.Snackbar
+import androidx.test.espresso.idling.CountingIdlingResource
+import androidx.core.content.ContextCompat
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
@@ -12,6 +13,7 @@ import com.walmart.productwheel.product.json.Comm
 import com.walmart.productwheel.product.json.Product
 import com.walmart.productwheel.product.json.ProductInfo
 import com.walmart.productwheel.product.list.ProductListFragment
+import com.walmart.productwheel.util.DownloadIdlingResource
 
 class MainActivity() : AppCompatActivity() {
 
@@ -28,10 +30,12 @@ class MainActivity() : AppCompatActivity() {
     // Vars
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    var products            : ArrayList<Product> = ArrayList()
-    var position            : Int  =  0
-    var page                : Int  =  1
-    var comm                : Comm = Comm()
+    var products  : ArrayList<Product> = ArrayList()
+    var position  =  0
+    var page      =  1
+    var comm      : Comm = Comm()
+
+    var idlingRes = DownloadIdlingResource("BackgroundTask")
 
     /**
      * constructor
@@ -92,7 +96,7 @@ class MainActivity() : AppCompatActivity() {
     /**
      * Show a fragment.
      */
-    fun showFragment (fragment: Fragment)
+    fun showFragment (fragment: androidx.fragment.app.Fragment)
     {
         // Get the fragment support manager instance
         val manager = supportFragmentManager
@@ -136,15 +140,15 @@ class MainActivity() : AppCompatActivity() {
         )
 
         // Set the text color to walmart blue
-        snackBar.view.setBackgroundColor(MainActivity.instance.getResources().getColor(R.color.walmart))
+        snackBar.view.setBackgroundColor(ContextCompat.getColor(MainActivity.instance, R.color.walmart))
 
         // Set the text color to white
-        val mainTextView   = snackBar.getView().findViewById(android.support.design.R.id.snackbar_text) as TextView
-        val actionTextView = snackBar.getView().findViewById(android.support.design.R.id.snackbar_action) as TextView
+        val mainTextView   = snackBar.getView().findViewById(R.id.snackbar_text) as TextView
+        val actionTextView = snackBar.getView().findViewById(R.id.snackbar_action) as TextView
 
         // To Change Text Color for Message and Action
-        mainTextView.setTextColor  (MainActivity.instance.getResources().getColor(textColor))
-        actionTextView.setTextColor(MainActivity.instance.getResources().getColor(textColor))
+        mainTextView.setTextColor  (ContextCompat.getColor(MainActivity.instance, textColor))
+        actionTextView.setTextColor(ContextCompat.getColor(MainActivity.instance, textColor))
 
         // Set the text size
         mainTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.font_size_medium));

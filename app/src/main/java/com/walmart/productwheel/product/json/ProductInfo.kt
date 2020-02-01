@@ -1,13 +1,13 @@
 package com.walmart.productwheel.product.json
 
 class ProductInfo  () {
-    var statusCode: String? = null
+    var statusCode      = ""
 
-    var pageSize: String? = null
+    var pageSize        = ""
 
-    var pageNumber: String? = null
+    var pageNumber      = ""
 
-    var totalProducts: String? = null
+    var totalProducts   = ""
 
     var products: Array<Product>? = null
 

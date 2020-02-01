@@ -1,12 +1,18 @@
 Name: Walmart Product Wheel
 
 Author: Pete Storli
-Date: 13 Jan 2019 - 15 Jan 2019
+Date: 31 Jan 2020
 Email: pstorli@gmail.com
-Version "1.0.0.0"
+Version "1.0.0.1"
 
-Issues Resolved:
+Issues Resolved in 1.0.0.1:
+  0000 Converted project to use AndroidX Jetpack
+  0000 Added Expresso tests. (Also created IdlingResource due to products loading from web)
 
+Known Issues in 1.0.0.1:
+  0000 Need to replace recycler view with Jetpack ones so state is preserved when phone is rotated.
+
+Issues Resolved in 1.0.0.0:
   0000 Inital Creation
   0000 Added product list and product detail fragments.
   0000 Added click on product in list and details for peoduct will be shown.
@@ -20,7 +26,8 @@ Issues Resolved:
   0000 Made product list text color red if out of stock, black if selected otherwise walmart blue
   0000 Added snackbar when product in stock button is pressed. Use red text if out of stock, in stock uses green.
 
-Known Issues:
+Date: Initial Project Creation 13 Jan 2019 - 15 Jan 2019
+Known Issues in 1.0.0.0:
   0000 When you go from the ProductDetail page to the ProductList page,
        app needs to scroll to current item, more work is needed to complete this feature.
 

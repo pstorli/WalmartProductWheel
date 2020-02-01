@@ -1,17 +1,17 @@
 package com.walmart.productwheel.product.list
 
 import android.graphics.Rect
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 
-class ProductDecoration (padding: Int) : RecyclerView.ItemDecoration() {
+class ProductDecoration (padding: Int) : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
 
     var padding       = 3
 
     init {
         this.padding  = padding
     }
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: androidx.recyclerview.widget.RecyclerView, state: androidx.recyclerview.widget.RecyclerView.State) {
         with(outRect) {
             top     = padding
             left    = padding

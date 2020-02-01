@@ -1,9 +1,9 @@
 package com.walmart.productwheel
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.walmart.productwheel.product.json.Product
 
-open class RootFragment : Fragment() {
+open class RootFragment : androidx.fragment.app.Fragment() {
 
     override fun onPause() {
         super.onPause()

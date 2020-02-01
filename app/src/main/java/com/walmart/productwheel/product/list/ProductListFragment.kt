@@ -1,35 +1,35 @@
 package com.walmart.productwheel.product.list
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
 
-class ProductListFragment : Fragment() {
+class ProductListFragment : androidx.fragment.app.Fragment() {
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Vars
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    lateinit var    recyclerView                            : RecyclerView
-    lateinit var    layoutManager                           : GridLayoutManager
+    lateinit var    recyclerView                            : androidx.recyclerview.widget.RecyclerView
+    lateinit var    layoutManager                           : androidx.recyclerview.widget.GridLayoutManager
     lateinit var    productListAdapter                      : ProductListAdapter
-    val             recyclerViewOnScrollListener = object   : RecyclerView.OnScrollListener() {
+    val             recyclerViewOnScrollListener = object   : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
         /**
          * onScrollStateChanged
          */
-        override fun onScrollStateChanged (recyclerView: RecyclerView, newState: Int) {
+        override fun onScrollStateChanged (recyclerView: androidx.recyclerview.widget.RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
         }
 
         /**
          * onScrolled
          */
-        override fun onScrolled (recyclerView: RecyclerView, dx: Int, dy: Int) {
+        override fun onScrolled (recyclerView: androidx.recyclerview.widget.RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
 
             val visibleItemCount            = layoutManager.childCount
@@ -69,10 +69,13 @@ class ProductListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Fetch the recycler
-        recyclerView = view.findViewById<RecyclerView>(R.id.productListRecycler)
+        recyclerView = view.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.productListRecycler)
 
         // create layout
-        layoutManager = GridLayoutManager(MainActivity.instance, 2)
+        layoutManager = androidx.recyclerview.widget.GridLayoutManager(
+            MainActivity.instance,
+            2
+        )
 
         recyclerView.layoutManager = layoutManager
 

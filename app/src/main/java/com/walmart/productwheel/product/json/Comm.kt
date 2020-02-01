@@ -42,6 +42,9 @@ class Comm {
     fun loadProducts(productListAdapter: ProductListAdapter, pageNumber: Int) {
         isLoading = true
 
+        // Increment the idling resource so expresso will wait. (Perhaps refactor to use dependancy injection later.)
+        MainActivity.instance.idlingRes.setIdle (false);
+
         Thread {
             try {
                 val url =
@@ -62,6 +65,10 @@ class Comm {
                 totalProducts = Integer.parseInt(productInfo.totalProducts)
             } catch (e: Exception) {
                 e.printStackTrace()
+            }
+            finally {
+                // Decrement the idling resource so expresso will resume. (Perhaps refactor to use dependancy injection later.)
+                MainActivity.instance.idlingRes.setIdle (true);
             }
         }.start()
 
@@ -106,8 +113,8 @@ class Comm {
     /**
      * getProducts
      */
-    fun getProducts(jsonProducts: String): ArrayList<Product> {
-        return fromString(jsonProducts) as ArrayList<Product>
+    fun getProducts(jsonProducts: String): ArrayList<*> {
+        return fromString(jsonProducts) as ArrayList<*>
     }
 
     /**

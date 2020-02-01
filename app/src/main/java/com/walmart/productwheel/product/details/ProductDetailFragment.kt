@@ -1,15 +1,15 @@
 package com.walmart.productwheel.product.details
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.walmart.productwheel.MainActivity
 import com.walmart.productwheel.R
 
-class ProductDetailFragment () : Fragment() {
+class ProductDetailFragment () : androidx.fragment.app.Fragment() {
 
     // Vars
     lateinit var vew : View
@@ -22,12 +22,12 @@ class ProductDetailFragment () : Fragment() {
         vew = inflater.inflate(R.layout.product_detail_fragment,container,false)
 
         // Set up the view pager.
-        var viewPager = vew.findViewById<ViewPager>(R.id.productPager)
+        var viewPager = vew.findViewById<androidx.viewpager.widget.ViewPager>(R.id.productPager)
         if (viewPager != null) {
             var productPagerAdapter = ProductDetailPagerAdapter(fragmentManager)
             viewPager.adapter = productPagerAdapter;
             viewPager.setCurrentItem(MainActivity.instance.position,  true)
-            viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            viewPager.addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
 
                 override fun onPageScrollStateChanged(state: Int) {
                 }
